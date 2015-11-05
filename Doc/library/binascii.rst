@@ -56,8 +56,10 @@ The :mod:`binascii` module defines the following functions:
 
    Convert binary data to a line of ASCII characters in base64 coding. The return
    value is the converted line, including a newline char if *newline* is
-   true. The length of *data* should be at most 57 to adhere to the
-   base64 standard.
+   true. To be MIME-compliant, the Base64 output (as defined in RFC4648) should
+   be broken into lines of at most 76 characters long. This post-processing of
+   the output is the responsibility of the caller. Note that the original PEM
+   context-transfer encoding limited line length to 64 characters.
 
 
    .. versionchanged:: 3.6
