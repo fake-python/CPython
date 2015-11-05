@@ -128,8 +128,15 @@ created.  Socket addresses are represented as follows:
     string format. (ex. ``b'12:23:34:45:56:67'``) This protocol is not
     supported under FreeBSD.
 
-- Certain other address families (:const:`AF_PACKET`, :const:`AF_CAN`)
-  support specific representations.
+- A tuple ``(interface, eth_prot, pkttype, ha_type, addr, addr_len``, )
+  is used for the  :const:`AF_PACKET` address family, where ``interface`` is a
+  string specifying the Ethernet interface,  ``eth_prot`` is an integer
+  specifying the Ethernet protocol, ``pkttype`` is an optional constant
+  specifying the packet type (for example, ``PACKET_HOST``), ``ha_type``
+  is an optional integer specifying the ARP hardware type, ``addr`` and
+  ``addr_len``  are optional arguments specifying the physical address
+  and its length.
+
 
   .. XXX document them!
 
