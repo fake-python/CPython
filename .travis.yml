@@ -6,11 +6,20 @@ addons:
       - tk-dev
       - liblzma-dev
 
+cache:
+  directories:
+    - $HOME/.ccache
+
 compiler:
   - clang
   - gcc
 
+env:
+  global:
+    - PATH="/usr/lib/ccache/:$PATH"
+
 before_script:
+  - ccache -s
   - ./configure
   - make $BUILDTARGET -j
 
